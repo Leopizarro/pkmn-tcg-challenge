@@ -4,11 +4,11 @@ The objective of this project is to develop a fullstack application (database, b
 
 This is a monorepo app, meaning that both the frontend and backend code are stored in the same folder. This application is also fully dockerized (database, backend & frontend), and can be executed with the docker-compose.yaml file in the root folder.
 
-### Database: PostgreSQL
+**Database: PostgreSQL**
 
-### Backend: NodeJs + Express + TypeORM
+**Backend: NodeJs + Express + TypeORM**
 
-### Frontend: NextJs + MaterialUI
+**Frontend: NextJs + MaterialUI**
 
 ## How to run the application
 
@@ -25,25 +25,11 @@ This is a monorepo app, meaning that both the frontend and backend code are stor
         docker logs CONTAINER_NAME|CONTAINER_ID
     ```
 ### Run without Docker:
-    - Create a new superuser named ash in psql with ```
-        CREATE USER ash SUPERUSER;
-    ```
-    - Create a private db for the new user with ```
-        CREATE DATABASE ash WITH OWNER ash;
-    ```
-    - Move to the backend folder, and there execute ```
-        npx ts-node create-database.ts
-    ``` (a new database pkmns-database will be created).
-    - On the backend folder, install dependencies with ```
-        npm install
-    ``` and then run the development environment with ```
-        npm run dev
-    ```
-    - Finally, move to the frontend folder, and install dependencies with ```
-        npm install
-    ``` and then run the development environment with ```
-        npm run dev
-    ```
-    - The frontend should be accesible through localhost:3000, and the backend through localhost:5000.
+- Create a new superuser named ash in psql with ```CREATE USER ash SUPERUSER;```
+- Create a private db for the new user with ```CREATE DATABASE ash WITH OWNER ash;```
+- Move to the backend folder, and there execute ```npx ts-node create-database.ts``` (a new database pkmns-database will be created).
+- On the backend folder, install dependencies with ```npm install``` and then run the development environment with ```npm run dev```
+- Finally, move to the frontend folder, and install dependencies with ```npm install``` and then run the development environment with ```npm run dev```
+- The frontend should be accesible through localhost:3000, and the backend through localhost:5000.
 
 
