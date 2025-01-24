@@ -1,4 +1,4 @@
-# Microsystem Pokémon TCG Fullstack Challenge
+# Microsystem's Pokémon TCG Fullstack Challenge
 
 The objective of this project is to develop a fullstack application (database, backend & frontend) that showcases the differents Pokémon tcg cards stored in the database.
 
