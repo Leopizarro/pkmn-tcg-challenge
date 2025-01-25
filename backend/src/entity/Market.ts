@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation, JoinColumn } from "typeorm"
 import { Card } from "./Card"
 
 @Entity()
@@ -16,7 +16,8 @@ export class Market {
     @Column('text')
     market: string
 
-    @ManyToOne(() => Card, (card) => card.markets)
+    @ManyToOne(() => Card, (card) => card.markets, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'card_id' })
     card: Relation<Card> 
 
 }

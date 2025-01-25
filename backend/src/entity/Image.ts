@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation, JoinColumn } from "typeorm"
 import { Card } from "./Card"
 
 @Entity()
@@ -13,7 +13,8 @@ export class Image {
     @Column('text')
     type: string
 
-    @ManyToOne(() => Card, (card) => card.images)
+    @ManyToOne(() => Card, (card) => card.images, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'card_id' })
     card: Relation<Card> 
 
 }

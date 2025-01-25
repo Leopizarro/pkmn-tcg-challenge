@@ -1,4 +1,4 @@
-import { Entity, Column, OneToMany, ManyToOne, Relation, PrimaryColumn } from "typeorm"
+import { Entity, Column, OneToMany, ManyToOne, Relation, PrimaryColumn, JoinColumn } from "typeorm"
 import { Set } from "./Set"
 import { Market } from "./Market"
 import { Image } from "./Image"
@@ -27,7 +27,8 @@ export class Card {
     @Column('text')
     rarity: string
 
-    @ManyToOne(() => Set, (set) => set.cards)
+    @ManyToOne(() => Set, (set) => set.cards, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'set_id' })
     set: Relation<Set>
 
     @OneToMany(() => Market, (market) => market.card)

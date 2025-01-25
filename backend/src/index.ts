@@ -1,6 +1,8 @@
 import express = require("express");
-import { AppDataSource } from "./data-source"
+import { AppDataSource } from "./data-source";
 import { json } from "body-parser";
+import setRoutes from './routes/sets';
+import cardRoutes from './routes/cards';
 import 'dotenv/config'
 
 AppDataSource.initialize().then(async () => {
@@ -9,8 +11,11 @@ AppDataSource.initialize().then(async () => {
 
     app.use(json());
 
+    app.use('/sets', setRoutes);
+    app.use('/cards', cardRoutes);
+
     app.get('/', (req, res) => {
-        res.send('Testing server :) !!');
+        res.send('Server up !! :)');
       });
 
     app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
