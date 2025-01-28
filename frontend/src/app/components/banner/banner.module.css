@@ -1,0 +1,47 @@
+.bannerContainer {
+    background: radial-gradient(#f2b18c3a 20%, transparent 21% ,transparent 89%, #f2b18c3a 80%);
+    background-size: 3em 3em;
+    background-color: #ce3827;
+    padding: 20px 0px;
+    margin: 30px 0px;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.imageContainer {
+    max-height: 360px;
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+}
+
+.bannerTitleContainer {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    align-self: center;
+    justify-self: left;
+}
+
+.bannerImageContainer {
+    height: 360px;
+    display: flex;
+    align-self: center;
+}
+
+.imageStyles {
+    border-radius: 20px;
+    object-fit: cover;
+    border: 1px solid white;
+}
+
+.bannerContent {
+    padding: 0px 15px;
+    max-width: 1600px;
+    justify-self: 'center';
+}
+
+.bannerTitle {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}

@@ -4,8 +4,9 @@ import { fetchAllSets, fetchCardsBySetId } from "../services/sets.service";
 export const getCardsBySetId: RequestHandler = async (req, res, next) => {
     try {
         const stageIdToSearch = (req.params as { id: string }).id;
-        const cardsBySetId = await fetchCardsBySetId(stageIdToSearch);
-        if (cardsBySetId.length === 0) {
+        const cardsData = await fetchCardsBySetId(stageIdToSearch);
+        const {cardTypes, cards, rarities } = cardsData;
+        if (cards?.length === 0) {
             res.status(404).json({
                 ok: false,
                 message: `Cartas ligadas al set ${stageIdToSearch} no encontradas`
@@ -15,7 +16,9 @@ export const getCardsBySetId: RequestHandler = async (req, res, next) => {
         res.status(200).json({
             ok: true,
             message: `Cartas ligadas al set ${stageIdToSearch} encontradas!`,
-            cards: cardsBySetId,
+            cards,
+            cardTypes,
+            rarities
         });
     } catch(error) {
         res.status(500).json({

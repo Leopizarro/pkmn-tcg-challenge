@@ -1,0 +1,39 @@
+.searcherContainer {
+    margin: 35px 0px 35px 0px;
+    justify-content: center;
+}
+
+.autocompleteContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.autocomplete {
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.autocompleteInput {
+    background: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    padding: 0 4px;
+}
+
+.setLogoContainer {
+    justify-content: center;
+    display: flex;
+    margin: 15px 10px;
+}
+
+.setLogoBox {
+    height: 200px;
+    max-height: 200px;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    min-width: 300px;
+}

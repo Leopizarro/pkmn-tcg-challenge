@@ -1,0 +1,14 @@
+.toolbar {
+    width: '100%';
+}
+
+.appbar {
+    border-bottom: 1px solid black;
+}
+
+.box {
+    display: "flex";
+    align-items: "center";
+    margin-right: 10px;
+    width: 100%;
+}

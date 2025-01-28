@@ -3,7 +3,6 @@ import 'dotenv/config'
 
 async function createDatabase() {
   const databaseName = process.env.DATABASE_NAME;
-  console.log('testing', process.env.DATABASE_NAME,process.env.DB_USERNAME, process.env.DB_PASSWORD, process.env.DB_HOST, process.env.DB_PORT)
   const client = new Client({
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -11,11 +10,8 @@ async function createDatabase() {
     port: Number(process.env.DB_PORT),
   });
 
-  console.log('testing', process.env.DATABASE_NAME,process.env.DB_USERNAME, process.env.DB_PASSWORD, process.env.DB_HOST, process.env.DB_PORT)
-
   try {
     await client.connect();
-    console.log('testingaaa')
     const res = await client.query(
       `SELECT 1 FROM pg_database WHERE datname = $1`,
       [databaseName]
