@@ -19,20 +19,20 @@ export class Set {
     @Column('int4')
     total: number
 
-    @Column('text')
-    ptcgo_code: string
+    @Column({type: 'text', name: 'ptcgo_code'})
+    ptcgoCode: string
 
-    @Column({ type: 'date'})
-    release_date: Date
+    @Column({ type: 'date', name: 'release_date'})
+    releaseDate: Date
 
-    @Column({ type: 'timestamptz'})
-    updated_at: Date
+    @Column({ type: 'timestamptz', name: 'updated_at'})
+    updatedAt: Date
 
-    @Column('text')
-    symbol_url: string
+    @Column({type: 'text', name: 'ptcgo_code'})
+    symbolUrl: string
 
-    @Column('text')
-    logo_url: string
+    @Column({type: 'text', name: 'logo_url'})
+    logoUrl: string
 
     @OneToMany(() => Card, (card) => card.set)
     cards: Relation<Card[]>

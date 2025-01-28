@@ -16,10 +16,10 @@ export class Card {
     supertype: string
 
     @Column('text', { array: true })
-    subtypes: string
+    subtypes: string[]
 
     @Column('text', { array: true })
-    types: string
+    types: string[]
 
     @Column('text')
     number: string

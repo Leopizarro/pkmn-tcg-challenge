@@ -12,6 +12,8 @@ services:
       - "5432:5432"
     volumes:
       - data_sql:/var/lib/postgresql/data       # Persistent data storage
+    networks:
+      - app-network
   backend:
     build: ./backend
     ports: 
@@ -25,6 +27,8 @@ services:
       - ./backend/.env
     depends_on:
       - db
+    networks:
+      - app-network
   frontend:
     build: ./frontend
     ports: 
@@ -36,5 +40,10 @@ services:
     tty: true
     env_file: 
       - ./frontend/.env
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
 volumes:
   data_sql:
