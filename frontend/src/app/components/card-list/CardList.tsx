@@ -7,6 +7,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
 import SelectInput from "../select-input/SelectInput";
+import Link from "next/link";
 
 const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, cardRarities: string[] | null}> = (props) => {
     const { cards, cardTypes, cardRarities } = props;
@@ -87,16 +88,18 @@ const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, ca
             {!isLoading && 
             <ImageList className={classes.fullWidth} cols={cols} rowHeight={360} gap={5}>
                 {filteredCards.map((card) => (
-                    <ImageListItem key={card.id} className={`${classes.grow} ${classes.imageListItem}`}>
-                    <Image
-                    src={card?.images[0]?.url}
-                    alt="tcg-set-logo" 
-                    fill
-                    style={{
-                        objectFit: 'contain',
-                        }}
-                    />
-            </ImageListItem>
+                    <Link href={`/card/${card?.id}`} passHref key={card?.id}>
+                        <ImageListItem className={`${classes.grow} ${classes.imageListItem}`}>
+                            <Image
+                            src={card?.images[0]?.url}
+                            alt="tcg-set-logo" 
+                            fill
+                            style={{
+                                objectFit: 'contain',
+                                }}
+                            />
+                        </ImageListItem>
+                    </Link>
             ))}
             </ImageList>}
             {
