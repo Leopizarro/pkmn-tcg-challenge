@@ -56,16 +56,34 @@ const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, ca
     }, [typeFilter, rarityFilter, nameFilter, cards]);
 
     return (
-        <Grid2 container size={12} maxWidth={1600}>
-            <Grid2 container className={classes.filtersContainer} size={12} justifyContent={{ sm: 'center', md: 'right' }} spacing={2}>
-                <Grid2 className={classes.flex} size={{ xs: 12, sm: 4, md: 'auto' }} justifyContent={{ xs: 'center', sm: 'right', md: 'center' }}>
+        <Grid2
+            container 
+            size={12} 
+            maxWidth={1600}
+        >
+            <Grid2 
+                container 
+                className={classes.filtersContainer} 
+                size={12} 
+                justifyContent={{ sm: 'center', md: 'right' }} 
+                spacing={2}
+            >
+                <Grid2 
+                    className={classes.flex} 
+                    size={{ xs: 12, sm: 4, md: 'auto' }} 
+                    justifyContent={{ xs: 'center', sm: 'right', md: 'center' }}
+                >
                     <TextField 
                         className={classes.nameFilter}
                         label="Nombre carta"
                         onChange={(e) => setNameFilter(e.target.value)}
                     />
                 </Grid2>
-                <Grid2 className={classes.flex} size={{ xs: 12, sm: 4, md: 'auto' }}>
+                <Grid2 
+                    className={classes.flex} 
+                    size={{ xs: 12, sm: 4, md: 'auto' }} 
+                    justifyContent='center'
+                >
                     <SelectInput 
                         options={cardTypes}
                         handleOnChange={handleCardTypeChange}
@@ -74,7 +92,11 @@ const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, ca
                         nullOptionLabel='Todos'
                     />
                 </Grid2>
-                <Grid2 className={classes.flex} size={{ xs: 12, sm: 4, md: 'auto' }} justifyContent={{ xs: 'center', sm: 'left', md: 'center' }}>
+                <Grid2 
+                    className={classes.flex} 
+                    size={{ xs: 12, sm: 4, md: 'auto' }} 
+                    justifyContent={{ xs: 'center', sm: 'left', md: 'center' }}
+                >
                     <SelectInput 
                         options={cardRarities}
                         handleOnChange={handleCardRarityChange}
@@ -86,10 +108,20 @@ const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, ca
             </Grid2>
             {isLoading && <Loading message="Filtrando cartas..."/>}
             {!isLoading && 
-            <ImageList className={classes.fullWidth} cols={cols} rowHeight={360} gap={5}>
+            <ImageList 
+                className={classes.fullWidth} 
+                cols={cols} 
+                rowHeight={360} 
+                gap={5}
+            >
                 {filteredCards.map((card) => (
-                    <Link href={`/card/${card?.id}`} passHref key={card?.id}>
-                        <ImageListItem className={`${classes.grow} ${classes.imageListItem}`}>
+                    <Link 
+                        href={`/card/${card?.id}`} 
+                        passHref key={card?.id}
+                    >
+                        <ImageListItem 
+                            className={`${classes.grow} ${classes.imageListItem}`}
+                        >
                             <Image
                             src={card?.images[0]?.url}
                             alt="tcg-set-logo" 
@@ -104,8 +136,16 @@ const CardList: React.FC<{cards: CardInterface[], cardTypes: string[] | null, ca
             </ImageList>}
             {
                 filteredCards?.length === 0 && 
-                <Grid2 container size={12} className={classes.cardsNotFound}>
-                    <Typography className={classes.notFoundText} fontSize={20}>No se han encontrado cartas</Typography>
+                <Grid2 
+                    container size={12} 
+                    className={classes.cardsNotFound}
+                >
+                    <Typography 
+                        className={classes.notFoundText} 
+                        fontSize={20}
+                    >
+                        No se han encontrado cartas
+                    </Typography>
                 </Grid2>
             }
         </Grid2>
