@@ -40,6 +40,7 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
         container 
         size={12} 
         spacing={2}
+        sx={{ minHeight: 'calc(100vh - 64px)' }}
       >
         <Grid2 
           container 
@@ -67,7 +68,25 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
         </Grid2>
       </Grid2>
       }
-      {cardNotFound && <Typography>Carta no encontrada :(</Typography>}
+      {cardNotFound &&
+        <Grid2
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ minHeight: 'calc(100vh - 64px)' }}
+        >
+        <Grid2 size={8}>
+          <Typography 
+            align='center' 
+            variant='h3'
+          >
+            Carta no encontrada :(
+          </Typography>
+        </Grid2>
+      </Grid2>
+      }
     </>
   );
 }
