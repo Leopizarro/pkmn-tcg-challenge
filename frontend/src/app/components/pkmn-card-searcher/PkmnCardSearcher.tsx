@@ -19,9 +19,8 @@ const PkmnCardSearcher: React.FC<{ options: SetInterface[] }> = (props) => {
 
     const fetchSetsCards = async (setId: string) => {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:5000/sets/${setId}/cards`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_CLIENT_BACKEND_URL}/sets/${setId}/cards`);
         const data = await response.json();
-        console.log(response, data)
         setCardsData(data?.cards);
         setCardTypes(data?.cardTypes)
         setCardRarities(data?.rarities)

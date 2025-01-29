@@ -14,9 +14,8 @@ AppDataSource.initialize().then(async () => {
     app.use(json());
 
     app.use(cors({
-        origin: 'http://localhost:3000', // Allow requests from your frontend
-        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-        credentials: true, // Include credentials (cookies, authorization headers, etc.)
+        origin: `${process.env.FRONTEND_URL}`, // Allow requests from the frontend
+        methods: ['GET'], // Specify allowed HTTP methods
       }));
 
     app.use('/sets', setRoutes);
@@ -32,7 +31,7 @@ AppDataSource.initialize().then(async () => {
         });
     })
 
-    app.listen(5000, () => console.log('SERVIDOR EN PUERTO 5000!'));
+    app.listen(process.env.APP_PORT, () => console.log(`SERVIDOR EN PUERTO ${process.env.APP_PORT}!`));
 
 
 
