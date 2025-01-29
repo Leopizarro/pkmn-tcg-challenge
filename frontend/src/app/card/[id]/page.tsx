@@ -13,7 +13,7 @@ export async function generateMetadata(
  
   const cardIdToSearch = (await params).id
 
-  const data = await fetch(`http://backend:5000/cards/${cardIdToSearch}/`).then((res) => res.json())
+  const data = await fetch(`${process.env.SERVER_BACKEND_URL}/cards/${cardIdToSearch}/`).then((res) => res.json())
   const card = data?.card as CardInterface
  
   return {
@@ -28,7 +28,7 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
   let cardNotFound: boolean = false;
   const { params } = props;
   const cardIdToSearch = (await params).id
-  const data = await fetch(`http://backend:5000/cards/${cardIdToSearch}/`)
+  const data = await fetch(`${process.env.SERVER_BACKEND_URL}/cards/${cardIdToSearch}/`)
   if (data?.status !== 200) {
     cardNotFound = true;
   }
