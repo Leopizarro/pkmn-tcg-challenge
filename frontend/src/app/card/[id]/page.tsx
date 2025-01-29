@@ -17,7 +17,7 @@ export async function generateMetadata(
   const card = data?.card as CardInterface
  
   return {
-    title: `${card?.name} - Microsystem PKMN Challenge`,
+    title: `${card?.name} - Microsystem's PKMN Challenge`,
     openGraph: {
       images: [card?.images[0].url],
     },
