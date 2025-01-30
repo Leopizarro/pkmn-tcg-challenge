@@ -56,8 +56,8 @@ The documentation of the endpoints can be found [HERE](https://documenter.getpos
   
 
 - Paste the .env files (frontend and backend), on their respective root folder:
--- Backend: `/backend/.env`
--- Frontend: `/frontend/.env`
+    - Backend: `/backend/.env`
+    - Frontend: `/frontend/.env`
 ***make sure that both files are named `.env` on their respective folders***
   
 
