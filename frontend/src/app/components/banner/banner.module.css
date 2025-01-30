@@ -26,6 +26,7 @@
     height: 360px;
     display: flex;
     align-self: center;
+    justify-content: center;
 }
 
 .imageStyles {
@@ -36,8 +37,7 @@
 
 .bannerContent {
     padding: 0px 15px;
-    max-width: 1600px;
-    justify-self: 'center';
+    justify-self: center;
 }
 
 .bannerTitle {

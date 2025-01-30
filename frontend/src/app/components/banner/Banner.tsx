@@ -8,8 +8,14 @@ const Banner: React.FC<{
     const { staticImage, bannerTitle } = props
     return (
         <Box className={classes.bannerContainer}>
-            <Grid2 container className={classes.bannerContent}>
-                <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 5 }} justifyContent={{ xs:'center', sm: 'center', md:'center' }} className={classes.bannerImageContainer}>
+            <Grid2 
+                container 
+                className={classes.bannerContent}
+            >
+                <Grid2 
+                    size={{ xs: 12, sm: 12, md: 6, lg: 5 }} 
+                    className={classes.bannerImageContainer}
+                >
                     <Box className={classes.imageContainer}>
                         <Image 
                         src={staticImage}
@@ -23,8 +29,17 @@ const Banner: React.FC<{
                         />
                     </Box>
                 </Grid2>
-                <Grid2 className={classes.bannerTitleContainer} size={{  xs: 12, sm: 12, md: 6, lg: 7, }} sx={{ marginTop: { xs: '40px', sm: '25px', md: '0px' }}}>
-                    <Typography variant="h3" component='h1' sx={{ fontSize: { xs: '28px', sm: '38px', md: '46px' } }} className={classes.bannerTitle}>
+                <Grid2 
+                    className={classes.bannerTitleContainer} 
+                    size={{  xs: 12, sm: 12, md: 6, lg: 7, }} 
+                    sx={{ marginTop: { xs: '40px', sm: '25px', md: '0px' }}}
+                >
+                    <Typography 
+                        variant="h3" 
+                        component='h1' 
+                        sx={{ fontSize: { xs: '28px', sm: '38px', md: '46px' } }} 
+                        className={classes.bannerTitle}
+                    >
                         {bannerTitle}
                     </Typography>
                 </Grid2>
