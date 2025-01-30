@@ -3,7 +3,7 @@ import Image from "next/image";
 import CardDescription from "../../components/card-details/CardDescription";
 import classes from './page.module.css';
 import { Metadata } from "next/types";
-import { CardInterface } from "@/app/interfaces/card.interface";
+import { getCardById } from "@/app/actions";
  
 export async function generateMetadata(
   { params }: {
@@ -12,14 +12,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
  
   const cardIdToSearch = (await params).id
-
-  const data = await fetch(`${process.env.SERVER_BACKEND_URL}/cards/${cardIdToSearch}/`).then((res) => res.json())
-  const card = data?.card as CardInterface
+  const card = await getCardById(cardIdToSearch);
  
   return {
-    title: `${card?.name} - Microsystem's PKMN Challenge`,
+    title: `${card ? card?.name : 'No encontrado'} - Microsystem's PKMN Challenge`,
     openGraph: {
-      images: [card?.images[0].url],
+      images: [card ? card?.images[0].url : ''],
     },
   }
 }
@@ -28,14 +26,13 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
   let cardNotFound: boolean = false;
   const { params } = props;
   const cardIdToSearch = (await params).id
-  const data = await fetch(`${process.env.SERVER_BACKEND_URL}/cards/${cardIdToSearch}/`)
-  if (data?.status !== 200) {
+  const cardInformation = await getCardById(cardIdToSearch);
+  if (!cardInformation) {
     cardNotFound = true;
   }
-  const cardInformation = await data.json()
   return (
     <>
-      { !cardNotFound &&
+      { !cardNotFound && cardInformation &&
       <Grid2 
         container 
         size={12} 
@@ -53,7 +50,7 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
               height={{ xs: '500px', md: '100%' }}
             >
               <Image 
-                src={cardInformation?.card?.images[1]?.url}
+                src={cardInformation?.images[1]?.url}
                 alt="card-image" 
                 fill
                 style={{
@@ -63,7 +60,7 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
             </Box>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 7 }}>
-            <CardDescription cardInformation={cardInformation?.card} />
+            <CardDescription cardInformation={cardInformation} />
           </Grid2>
         </Grid2>
       </Grid2>
