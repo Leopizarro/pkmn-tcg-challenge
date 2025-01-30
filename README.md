@@ -17,21 +17,21 @@ This application fully dockerized (database, backend & frontend), and can be exe
 
   
 
-**Database: PostgreSQL**
+- **Database: PostgreSQL**
 
   
 
   
 
-**Backend: NodeJs + Express + TypeORM**
+- **Backend: NodeJs + Express + TypeORM**
 
-The documentation of the endpoints can be found [HERE](https://documenter.getpostman.com/view/22098385/2sAYQiCoSk)
-
-  
+    - The documentation of the endpoints can be found [HERE](https://documenter.getpostman.com/view/22098385/2sAYQiCoSk)
 
   
 
-**Frontend: NextJs + MaterialUI**
+  
+
+- **Frontend: NextJs + MaterialUI**
 
   
 
@@ -58,7 +58,7 @@ The documentation of the endpoints can be found [HERE](https://documenter.getpos
 - Paste the .env files (frontend and backend), on their respective root folder:
     - Backend: `/backend/.env`
     - Frontend: `/frontend/.env`
-***make sure that both files are named `.env` on their respective folders***
+    - ***make sure that both files are named `.env` on their respective folders***
   
 
 - In the root folder of the project, execute ```docker compose up -d --build```
