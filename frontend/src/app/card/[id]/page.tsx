@@ -37,17 +37,17 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
         container 
         size={12} 
         spacing={2}
-        sx={{ minHeight: 'calc(100vh - 64px)' }}
+        className={classes.pageContainer}
+        sx={{ padding:{ xs: '2vh 3vw', md:'5vh 2vw' } }}
+        justifyContent='center'
+        alignContent='center'
       >
-        <Grid2 
-          container 
-          size={12} 
-          padding={{ xs: '2vh 3vw', md:'5vh 2vw' }}
-        >
-          <Grid2 size={{ xs: 12, md: 'grow' }}>
+        <Grid2 container direction='column' size={{ xs: 12, md: 'grow' }}>
+          <Grid2 size={12} height='100%'>
             <Box 
               className={classes.imageContainer} 
-              height={{ xs: '500px', md: '100%' }}
+              height={{ xs: '500px', md: '900px' }}
+              maxHeight='80vh'
             >
               <Image 
                 src={cardInformation?.images[1]?.url}
@@ -59,9 +59,9 @@ const CardDetails:React.FC<{params: Promise<{ id: string }>}> = async (props) =>
               />
             </Box>
           </Grid2>
-          <Grid2 size={{ xs: 12, md: 7 }}>
-            <CardDescription cardInformation={cardInformation} />
-          </Grid2>
+        </Grid2>
+        <Grid2 size={{ xs: 12, md: 7, lg: 6 }}>
+          <CardDescription cardInformation={cardInformation} />
         </Grid2>
       </Grid2>
       }
