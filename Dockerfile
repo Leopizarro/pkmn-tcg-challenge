@@ -3,4 +3,4 @@ FROM postgres:latest
 
 EXPOSE 5432
 
-COPY database_backup.sql /docker-entrypoint-initdb.d/
+COPY ./resources/database_backup.sql /docker-entrypoint-initdb.d/
