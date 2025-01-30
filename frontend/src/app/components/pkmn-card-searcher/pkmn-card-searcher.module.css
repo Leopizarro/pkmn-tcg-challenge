@@ -37,3 +37,10 @@
     max-width: 500px;
     min-width: 300px;
 }
+
+.notFoundContainer {
+    margin: 35px 0px 35px 0px;
+    justify-content: center;
+    align-items: 'center';
+    flex-direction: column;
+}
