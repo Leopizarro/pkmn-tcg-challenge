@@ -83,9 +83,9 @@ This application fully dockerized (database, backend & frontend), and can be exe
 
 - Create a private db for the new user with ```CREATE DATABASE ash WITH OWNER ash;```
 - Paste the .env files (frontend and backend), on their respective root folder:
--- Backend: `/backend/.env`
--- Frontend: `/frontend/.env`
-***make sure that both files are named `.env` on their respective folders***
+    - Backend: `/backend/.env`
+    - Frontend: `/frontend/.env`
+    - ***make sure that both files are named `.env` on their respective folders***
 
   
 
