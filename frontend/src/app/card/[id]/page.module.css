@@ -6,3 +6,7 @@
 .centerContent {
     align-content: center;
 }
+
+.pageContainer {
+    min-height: calc(100vh - 64px);
+}

@@ -10,14 +10,13 @@ const CardDescription: React.FC<{cardInformation: CardInterface}> = (props) => {
         <Box 
           height= '100%' 
           className={classes.boxContainer}
-          maxHeight={950} 
           maxWidth={950} 
           padding='10px'
         >
           <Grid2 
             container 
             size={12} 
-            justifyContent='center' 
+            justifyContent='center'
             spacing={2}
           >
             <Grid2 container spacing={2}>
@@ -70,6 +69,7 @@ const CardDescription: React.FC<{cardInformation: CardInterface}> = (props) => {
                   fontWeight='bold' 
                   component='h4' 
                   variant="h4"
+                  fontSize={{xs: '1.9rem', md:'2rem'}}
                 >
                   Publicaciones Market
                 </Typography>
@@ -88,7 +88,8 @@ const CardDescription: React.FC<{cardInformation: CardInterface}> = (props) => {
               >
                 <Grid2 
                   size={{ xs: 12, md:6 }} 
-                  container justifyContent={{ xs: 'center', md: 'right' }}
+                  container 
+                  justifyContent={{ xs: 'center', md: 'right' }}
                 >
                   <Typography 
                     alignSelf='center' 
